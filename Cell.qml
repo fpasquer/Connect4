@@ -35,15 +35,15 @@ Item {
             verticalAlignment: Text.AlignVCenter
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
-            font.pixelSize: 12
+            font.pixelSize: 15
         }
 
         MouseArea {
             id: mouseArea
             anchors.fill: parent
             onClicked: {
-                var x = parseInt(parseInt(index.text) / gridManager.rowNumber)
-                var y = parseInt(parseInt(index.text) % gridManager.colNumber)
+                var x = Math.trunc(index.text % gridManager.colNumber)
+                var y = Math.trunc(index.text / gridManager.colNumber)
                 console.log("x => " + x + " y => " + y + " index : " + indexText)
             }
         }
