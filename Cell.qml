@@ -3,6 +3,10 @@ import QtQuick 2.0
 Item {
     id: cellManager
     property alias indexText: index.text
+    readonly property int sizeSquare: 46
+
+    width: sizeSquare
+    height: sizeSquare
 
     function setColor(color) {
         cell.color = color
@@ -26,17 +30,24 @@ Item {
 
         Text {
             id: index
-            x: 16
-            y: 13
             text: "?"
-            font.pointSize: 15
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
             font.pixelSize: 12
         }
+
+        MouseArea {
+            id: mouseArea
+            anchors.fill: parent
+            onClicked: {
+                var x = parseInt(parseInt(index.text) / gridManager.rowNumber)
+                var y = parseInt(parseInt(index.text) % gridManager.colNumber)
+                console.log("x => " + x + " y => " + y + " index : " + indexText)
+            }
+        }
     }
-
-
 }
 
 /*##^##

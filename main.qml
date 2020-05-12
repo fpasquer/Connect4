@@ -17,12 +17,12 @@ Window {
     DashBoard {
         id: dashBoard
         x: 440
+        y: 59
         width: 200
         height: 480
+        anchors.verticalCenter: parent.verticalCenter
         anchors.right: parent.right
         anchors.rightMargin: 0
-        anchors.top: parent.top
-        anchors.topMargin: 0
     }
 }
 
