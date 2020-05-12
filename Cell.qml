@@ -2,15 +2,15 @@ import QtQuick 2.0
 
 Item {
     id: cellManager
-    property alias indexText: index.text
+
     readonly property int sizeSquare: 46
+    property bool empty: true
+    property alias indexText: index.text
+    property alias cellButton: cellButton
+    property alias cellColor: cell.color
 
     width: sizeSquare
     height: sizeSquare
-
-    function setColor(color) {
-        cell.color = color
-    }
 
     Rectangle {
         id: background
@@ -39,13 +39,13 @@ Item {
         }
 
         MouseArea {
-            id: mouseArea
+            id: cellButton
             anchors.fill: parent
-            onClicked: {
-                var x = Math.trunc(index.text % gridManager.colNumber)
-                var y = Math.trunc(index.text / gridManager.colNumber)
-                console.log("x => " + x + " y => " + y + " index : " + indexText)
-            }
+//            onClicked: {
+//                var x = Math.trunc(index.text % gridManager.colNumber)
+//                var y = Math.trunc(index.text / gridManager.colNumber)
+//                console.log("x => " + x + " y => " + y + " index : " + indexText)
+//            }
         }
     }
 }
